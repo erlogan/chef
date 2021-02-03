@@ -266,8 +266,12 @@ class Chef
 
         # this array structure is solving 2 problems. The first is that we need to have support for both the CurrentUser AND LocalMachine stores
         # Secondly, we need to pass the proper constant name for each store to win32-certstore but also pass the short name to powershell scripts used here
-        def get_cert_location
-          new_resource.user_store ? ["CurrentUser", CERT_SYSTEM_STORE_CURRENT_USER] : ["LocalMachine", CERT_SYSTEM_STORE_LOCAL_MACHINE]
+        def ps_cert_location
+          new_resource.user_store ? "CurrentUser" : "LocalMachine"
+        end
+
+        def native_cert_location
+          new_resource.user_store ? CERT_SYSTEM_STORE_CURRENT_USER] : CERT_SYSTEM_STORE_LOCAL_MACHINE
         end
 
         def cert_script(persist)
