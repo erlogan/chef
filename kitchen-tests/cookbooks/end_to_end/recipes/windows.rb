@@ -165,7 +165,7 @@ cookbook_file "c:\\mordor\\chef.northwindbaking.com.chained.cert.pem" do
   action :create_if_missing
 end
 
-windows_certificate "c:/mordor/chef.northwindbaking.com.chained.cert.pem" do
+windows_certificate "c:\\mordor\\chef.northwindbaking.com.chained.cert.pem" do
+  store_name "MY"
   action :create
 end
-
