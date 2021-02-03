@@ -159,13 +159,3 @@ end
 windows_certificate "c:/mordor/ca.cert.pem" do
   store_name "ROOT"
 end
-
-cookbook_file "c:\\mordor\\chef.northwindbaking.com.chained.cert.pem" do
-  source "/certs/chef.northwindbaking.com.chained.cert.pem"
-  action :create_if_missing
-end
-
-windows_certificate "c:\\mordor\\chef.northwindbaking.com.chained.cert.pem" do
-  store_name "MY"
-  action :create
-end
